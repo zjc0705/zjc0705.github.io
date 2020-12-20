@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>关于定位的讲解以及拓展 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="定位浮动默认是static（表示还处于文档流中）fixed 锁定定位 一般哪些小广告啊 弹窗啊 菜单栏 但是一般不要用，不然容易造成覆盖其他的内容relative 谁被授予了这个属性那么他就被作为 “参考物”1234567891011121314151617181920$ hexo &lt;div class&#x3D;&quot;father&quot;&gt;&lt;div class&#x3D;&quot;so">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于定位的讲解以及拓展">
+<meta property="og:url" content="http://example.com/2020/12/12/%E5%85%B3%E4%BA%8E%E5%AE%9A%E4%BD%8D%E7%9A%84%E8%AE%B2%E8%A7%A3%E4%BB%A5%E5%8F%8A%E6%8B%93%E5%B1%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="定位浮动默认是static（表示还处于文档流中）fixed 锁定定位 一般哪些小广告啊 弹窗啊 菜单栏 但是一般不要用，不然容易造成覆盖其他的内容relative 谁被授予了这个属性那么他就被作为 “参考物”1234567891011121314151617181920$ hexo &lt;div class&#x3D;&quot;father&quot;&gt;&lt;div class&#x3D;&quot;so">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-12T12:21:26.000Z">
+<meta property="article:modified_time" content="2020-12-12T12:21:50.019Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-关于定位的讲解以及拓展" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/12/%E5%85%B3%E4%BA%8E%E5%AE%9A%E4%BD%8D%E7%9A%84%E8%AE%B2%E8%A7%A3%E4%BB%A5%E5%8F%8A%E6%8B%93%E5%B1%95/" class="article-date">
+  <time datetime="2020-12-12T12:21:26.000Z" itemprop="datePublished">2020-12-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关于定位的讲解以及拓展
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="定位浮动默认是static（表示还处于文档流中）"><a href="#定位浮动默认是static（表示还处于文档流中）" class="headerlink" title="定位浮动默认是static（表示还处于文档流中）"></a>定位浮动默认是static（表示还处于文档流中）</h2><h2 id="fixed-锁定定位-一般哪些小广告啊-弹窗啊-菜单栏-但是一般不要用，不然容易造成覆盖其他的内容"><a href="#fixed-锁定定位-一般哪些小广告啊-弹窗啊-菜单栏-但是一般不要用，不然容易造成覆盖其他的内容" class="headerlink" title="fixed 锁定定位 一般哪些小广告啊 弹窗啊 菜单栏 但是一般不要用，不然容易造成覆盖其他的内容"></a>fixed 锁定定位 一般哪些小广告啊 弹窗啊 菜单栏 但是一般不要用，不然容易造成覆盖其他的内容</h2><h2 id="relative-谁被授予了这个属性那么他就被作为-“参考物”"><a href="#relative-谁被授予了这个属性那么他就被作为-“参考物”" class="headerlink" title="relative 谁被授予了这个属性那么他就被作为 “参考物”"></a>relative 谁被授予了这个属性那么他就被作为 “参考物”</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ hexo &lt;div class=<span class="string">&quot;father&quot;</span>&gt;</span><br><span class="line">&lt;div class=<span class="string">&quot;son&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"> </span><br><span class="line"> &lt;style&gt;</span><br><span class="line"> </span><br><span class="line"> .father&#123;</span><br><span class="line">     width:500px;</span><br><span class="line">     height:500px;</span><br><span class="line">     background:blue;</span><br><span class="line">     position:relative;//此时的father就被当做一个参考物</span><br><span class="line"> &#125;</span><br><span class="line">.son&#123;</span><br><span class="line">    width:100px;</span><br><span class="line">    height:100px;</span><br><span class="line">    backgound:red;</span><br><span class="line">    position:abusolute;</span><br><span class="line">    top:100px //这个说明相对于father向下移动100px；</span><br><span class="line">&#125;</span><br><span class="line"> &lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="第二就是既然是浮动，那么有多个块元素的时候，谁会在上。又会采取什么原则。"><a href="#第二就是既然是浮动，那么有多个块元素的时候，谁会在上。又会采取什么原则。" class="headerlink" title="第二就是既然是浮动，那么有多个块元素的时候，谁会在上。又会采取什么原则。"></a>第二就是既然是浮动，那么有多个块元素的时候，谁会在上。又会采取什么原则。</h2> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"> &lt;div class=<span class="string">&quot;father&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=<span class="string">&quot;son1&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=<span class="string">&quot;son2&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=<span class="string">&quot;son3&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">.father&#123;</span><br><span class="line">  width:500px;</span><br><span class="line">     height:500px;</span><br><span class="line">     background:blue;</span><br><span class="line">     position:relative;//此时的father就被当做一个参考物</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.son1&#123;</span><br><span class="line">     width:100px;</span><br><span class="line">     height:100px;</span><br><span class="line">     background:red;</span><br><span class="line">     position:abusolute;</span><br><span class="line">&#125;</span><br><span class="line">.son2&#123;</span><br><span class="line">    width:200px;</span><br><span class="line">     height:200px;</span><br><span class="line">     background:green;</span><br><span class="line">     position:abusolute;</span><br><span class="line">&#125;</span><br><span class="line">.son3&#123;</span><br><span class="line">        width:300px;</span><br><span class="line">     height:300px;</span><br><span class="line">     background:black;</span><br><span class="line">     position:abusolute;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">//1上面有三个div son1 son2 son3 如果都用定位那么son3会覆盖，下面两个div；</span><br><span class="line">因为他采取的是看父级元素是否具有relative，如果父亲没有，爷爷也没有，那么就是以body页面为准。如果爷爷和父亲都有relative，那么采取就近原则</span><br><span class="line">2如果father和grandfather都是absolute，son也是abusolute,那么以father为标准来浮动</span><br></pre></td></tr></table></figure>
+<h2 id="拓展z-index-数值他只能和position一起用-如果数值大的则那个在上面。"><a href="#拓展z-index-数值他只能和position一起用-如果数值大的则那个在上面。" class="headerlink" title="拓展z-index:数值他只能和position一起用,如果数值大的则那个在上面。"></a>拓展z-index:数值他只能和position一起用,如果数值大的则那个在上面。</h2><h2 id="但是-son1属于father1-son2-属于father2-如果faher1-index-大于father2"><a href="#但是-son1属于father1-son2-属于father2-如果faher1-index-大于father2" class="headerlink" title="但是 son1属于father1 son2 属于father2    如果faher1 index 大于father2"></a>但是 son1属于father1 son2 属于father2    如果faher1 index 大于father2</h2><h2 id="那么不管son2的z-index多大于son1-那么都会在son1下面"><a href="#那么不管son2的z-index多大于son1-那么都会在son1下面" class="headerlink" title="那么不管son2的z-index多大于son1 那么都会在son1下面"></a>那么不管son2的z-index多大于son1 那么都会在son1下面</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/12/%E5%85%B3%E4%BA%8E%E5%AE%9A%E4%BD%8D%E7%9A%84%E8%AE%B2%E8%A7%A3%E4%BB%A5%E5%8F%8A%E6%8B%93%E5%B1%95/" data-id="ckiwmhjuo00049ktydkqegr3v" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/12/12/%E5%85%B3%E4%BA%8E%E6%B5%AE%E5%8A%A8%E7%9A%84%E8%AE%B2%E8%A7%A3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          关于浮动的讲解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/12/08/js%E5%BE%AA%E7%8E%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">js循环</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/12/20/js%E5%87%BD%E6%95%B0%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%90%86%E8%A7%A3%E4%BB%A5%E5%8F%8A%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%8D%E7%B1%BB/">js函数的第一次理解以及函数的种类</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/12/%E8%BF%87%E6%B8%A1%E5%8A%A8%E7%94%BB/">过渡动画</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/12/%E5%85%B3%E4%BA%8E%E6%B5%AE%E5%8A%A8%E7%9A%84%E8%AE%B2%E8%A7%A3/">关于浮动的讲解</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/12/%E5%85%B3%E4%BA%8E%E5%AE%9A%E4%BD%8D%E7%9A%84%E8%AE%B2%E8%A7%A3%E4%BB%A5%E5%8F%8A%E6%8B%93%E5%B1%95/">关于定位的讲解以及拓展</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/08/js%E5%BE%AA%E7%8E%AF/">js循环</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

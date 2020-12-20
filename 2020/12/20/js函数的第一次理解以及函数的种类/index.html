@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>js函数的第一次理解以及函数的种类 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="立即执行函数1234567891011121314151617181920&lt;script&gt;   &#x2F;*  function()&amp;#123;console.log(333);&amp;#125; *&#x2F;    &#x2F;&#x2F;像这样写会直接报错，匿名函数，所以要给它var一个变量，来等于他，如下    var fun1&#x3D;function()&amp;#123;        console.log(333);    &amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js函数的第一次理解以及函数的种类">
+<meta property="og:url" content="http://example.com/2020/12/20/js%E5%87%BD%E6%95%B0%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%90%86%E8%A7%A3%E4%BB%A5%E5%8F%8A%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%8D%E7%B1%BB/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="立即执行函数1234567891011121314151617181920&lt;script&gt;   &#x2F;*  function()&amp;#123;console.log(333);&amp;#125; *&#x2F;    &#x2F;&#x2F;像这样写会直接报错，匿名函数，所以要给它var一个变量，来等于他，如下    var fun1&#x3D;function()&amp;#123;        console.log(333);    &amp;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-20T04:12:28.000Z">
+<meta property="article:modified_time" content="2020-12-20T04:17:06.594Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-js函数的第一次理解以及函数的种类" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/20/js%E5%87%BD%E6%95%B0%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%90%86%E8%A7%A3%E4%BB%A5%E5%8F%8A%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%8D%E7%B1%BB/" class="article-date">
+  <time datetime="2020-12-20T04:12:28.000Z" itemprop="datePublished">2020-12-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js函数的第一次理解以及函数的种类
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">   /*  <span class="function"><span class="title">function</span></span>()&#123;console.log(333);&#125; */</span><br><span class="line">    //像这样写会直接报错，匿名函数，所以要给它var一个变量，来等于他，如下</span><br><span class="line">    var fun1=<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        console.log(333);</span><br><span class="line">    &#125;</span><br><span class="line">    fun1();</span><br><span class="line">    //这样写就对了，控制台打印333</span><br><span class="line"></span><br><span class="line">    //像这样我只想调用一次，还要创建一个变量，太亏了，所以就有了立即执行函数。</span><br><span class="line">    //那就要这样写 在他的外面套一个括号()</span><br><span class="line">   /* (<span class="function"><span class="title">function</span></span>()&#123; console.log(333)&#125;)  *///这样不会报错，因为他们现在是一个整体</span><br><span class="line"></span><br><span class="line">   //现在就是该如何去调用它呢？  由于就是他本身是个函数，那么就在他的外面加一个括号()</span><br><span class="line">  (<span class="function"><span class="title">function</span></span>()&#123;console.log(111);&#125;)();//这样就调用它了 ，打印了111</span><br><span class="line"></span><br><span class="line">  //这个就是立即执行函数 马上被调用，只会调用一次，因为没有变量来保存它</span><br><span class="line">  //它也能传参 例如下面</span><br><span class="line">  (<span class="keyword">function</span>(a,b)&#123; console.log(a+b);&#125;)(1,3);//成功了函数调用，结果就是等于4</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="普通函数"><a href="#普通函数" class="headerlink" title="普通函数"></a>普通函数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">     var fun=new Function(<span class="string">&quot;console.log(&#x27;this is my first code&#x27;)&quot;</span>);</span><br><span class="line">      fun();</span><br><span class="line">      fun();</span><br><span class="line">      fun.hello=<span class="string">&quot;你好&quot;</span>;</span><br><span class="line">      console.log(fun.hello);</span><br><span class="line">  </span><br><span class="line">//函数声明</span><br><span class="line">  <span class="keyword">function</span> <span class="function"><span class="title">fun1</span></span>()&#123;</span><br><span class="line"></span><br><span class="line">  &#125; //都没有什么区别但是这个更简单</span><br><span class="line">console.log(fun1);</span><br><span class="line">//函数表达式</span><br><span class="line">   var fun3= <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(<span class="string">&quot;hhh&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">fun3();</span><br><span class="line">//函数的两种普通创建方式</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//多写几个函数</span><br><span class="line"></span><br><span class="line">//声明函数方式</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">zheng</span></span>()&#123;</span><br><span class="line">    document.write(<span class="string">&quot;你&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">jie</span></span>()&#123;</span><br><span class="line">    document.write(<span class="string">&quot;很厉害&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">cheng</span></span>()&#123;</span><br><span class="line">    document.write(<span class="string">&quot;所以不要轻易去招惹&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line">zheng();</span><br><span class="line">jie();</span><br><span class="line">cheng()</span><br><span class="line"></span><br><span class="line">//总结就是，声明函数就是<span class="keyword">function</span> +函数名称 比如gou()  整体就是 <span class="keyword">function</span> <span class="function"><span class="title">gou</span></span>()&#123;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//这是第二种：函数表达式，就是var一个变量，让他等于这个函数，这样的函数创建，让什么等于什么就是函数表达式</span><br><span class="line"></span><br><span class="line">//例如下面的例子</span><br><span class="line"></span><br><span class="line">//这个一开始只是个匿名函数，都无法被调用。</span><br><span class="line">/*  <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">     console.log(<span class="string">&quot;hhhh这个是匿名函数&quot;</span>);</span><br><span class="line"> &#125; */</span><br><span class="line"> //所以说我们要给他var 一个变量，让这个变量等于这个匿名函数</span><br><span class="line"></span><br><span class="line"> var noname=<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">     console.log(<span class="string">&quot;这个是函数表达式&quot;</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> //现在要调用函数就是直接 noname()</span><br><span class="line"> noname();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    // 什么是递归函数呢</span><br><span class="line">    //如果一个函数在内部可以调用其本身，那么这个函数就是递归函数</span><br><span class="line">    //简单来说就是自己调用自己</span><br><span class="line"></span><br><span class="line">    //例如下面的</span><br><span class="line"></span><br><span class="line">   /*  var fun=<span class="function"><span class="title">function</span></span>()&#123; */</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> /* fun();   *///这个是在内部调用，这个就是递归函数 不断的反复的调用自己，就像<span class="keyword">for</span>循环一样</span><br><span class="line"></span><br><span class="line">   /*  &#125;    */ //所以很容易死循环，栈溢出 所以一定要加<span class="built_in">return</span></span><br><span class="line">   /*  fun() *///这个是在外面调用</span><br><span class="line"> var num=1;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">fun</span></span>()&#123;</span><br><span class="line">       console.log(<span class="string">&#x27;我要打印6句话&#x27;</span>);</span><br><span class="line">       <span class="keyword">if</span>(num==6)&#123;</span><br><span class="line">              <span class="built_in">return</span>;//递归必须加退出条件</span><br><span class="line">       &#125;</span><br><span class="line">    </span><br><span class="line">   num++;    </span><br><span class="line">fun();</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line">   fun();</span><br><span class="line">var nm=1</span><br><span class="line">   var digui=<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">console.log(<span class="string">&quot;我要打印12句话&quot;</span>);</span><br><span class="line"><span class="keyword">if</span>(nm==12)&#123;</span><br><span class="line">    <span class="built_in">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">nm++;</span><br><span class="line">digui();</span><br><span class="line">   &#125;</span><br><span class="line">   digui();</span><br><span class="line">   </span><br><span class="line">var n=0;</span><br><span class="line">   <span class="keyword">function</span> gg(a)&#123;</span><br><span class="line">      console.log(a++);</span><br><span class="line">       <span class="keyword">if</span>(n==55)&#123;</span><br><span class="line">           <span class="built_in">return</span>;</span><br><span class="line">       &#125;</span><br><span class="line">n++;</span><br><span class="line">gg(2);</span><br><span class="line">   &#125;</span><br><span class="line">   gg(2);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var obj= new Object();//这是给人创建的对象</span><br><span class="line">    var obj=new Object();//这是给狗创建的对象</span><br><span class="line">    //但是去控制台一打印都是说是object </span><br><span class="line">    //他们的类型都是一样的 就无法区分了啊 是人还是狗</span><br><span class="line">   /*  var obj=new person(); */</span><br><span class="line">  /*   var obj2=new dog(); *///我们就想要这样写，但是人家没有这个person和dog这个函数对象</span><br><span class="line">    //所以直接给你报错</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//所以我们要创建一个构造函数，专门用来创建person这个对象的</span><br><span class="line">//构造函数就是一个普通的函数，创建方式和普通方式没有区别</span><br><span class="line">//但是区别是 首字母大写</span><br><span class="line">// 还有不同的就是，他们的调用方式不同 </span><br><span class="line">//普通函数是直接调用，而构造函数需要使用new关键字来调用 例如下面</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Gun</span></span>()&#123;</span><br><span class="line">    this.name=<span class="string">&quot;猪八贱&quot;</span>;//现在就可以看看是不是xing有name，这个对象</span><br><span class="line">    this.age=22;</span><br><span class="line">    this.gender=<span class="string">&quot;男&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">var xing =new Gun();</span><br><span class="line">console.log(xing.name);//控制台打印了猪八贱，所以说这个函数的对象创建成功了</span><br><span class="line">console.log(xing);//现在看xing就是一个对象了，他有name age gender</span><br><span class="line"></span><br><span class="line">var xing2=new Gun();</span><br><span class="line">var xing3=new Gun();//这样就会创建多个对象了，但是我们会发现，这些xing2，xing3 他们的</span><br><span class="line">//name都是猪八贱，age都是22，那肯定不行又写死了</span><br><span class="line"></span><br><span class="line">//所以要在Gun()加形参了</span><br><span class="line"><span class="keyword">function</span> Gun2(name,age ,gender)&#123;</span><br><span class="line">    this.name=name;//现在就可以看看是不是xing有name，这个对象</span><br><span class="line">    this.age=age;</span><br><span class="line">    this.gender=gender;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var zheng =new Gun2(<span class="string">&quot;孙悟空&quot;</span>,33,<span class="string">&quot;男&quot;</span>)</span><br><span class="line">console.log(zheng);//这样就成功了</span><br><span class="line">/* var xing=Gun(); *///这个是普通函数的调用</span><br><span class="line">/* console.log(xing); */ //由于xing什么都没有所以结果直接是undefined </span><br><span class="line"></span><br><span class="line">/* var xing =new Gun(); *///这个是构造函数的调用</span><br><span class="line">/* console.log(xing); *///这样的话就是返回一个object对象 Gun&#123;&#125;</span><br><span class="line"></span><br><span class="line">// 为什么是返回一个对象呢，明明Gun这个函数里面什么都没有</span><br><span class="line"></span><br><span class="line">//构造函数的执行流程；</span><br><span class="line"></span><br><span class="line">// 1 一旦出现了new，就会立即创建一个新的对象</span><br><span class="line">//将新建的这个对象设置为函数的this 换句话说现在这个this是就是我们创建的那个xing这个对象</span><br><span class="line">//3逐行执行函数中的代码</span><br><span class="line">//4将新建的对象作为返回值返回</span><br><span class="line"></span><br><span class="line">//使用同一构造函数创建的对象，我们称为一类对象，也是一个构造函数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//使用instanceof可以检查一个对象是否是一个类的实例 如果是返回<span class="literal">true</span> 否则<span class="literal">false</span></span><br><span class="line"></span><br><span class="line">console.log(xing instanceof Gun);//返回的是<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 所有的对象都是Object的后代 所以任何对象和Object在instanceof都是返回<span class="literal">true</span></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    //函数的参数</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">fun2</span></span>()&#123;</span><br><span class="line">        console.log(1+1);</span><br><span class="line">    &#125;</span><br><span class="line">fun2(); //结果就等于2 </span><br><span class="line">//但是我们发现这样确实是相加了，但是这个函数只能处理计算1+1,不能算其他的数学</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  //所以说我们就想到了 在函数的()中创建形参，这个形参用逗号隔开。</span><br><span class="line">  //性差的作用就相当于是在函数的内部声明了对应的函数。 但是并不赋值，只是在调用函数的时候，在括号里面写实参</span><br><span class="line"></span><br><span class="line">  //如下</span><br><span class="line"><span class="keyword">function</span> fun3(a,b)&#123;</span><br><span class="line">    console.log(a+b);</span><br><span class="line">&#125;</span><br><span class="line">//a,b就是形参，222和888 就是实参，意思就是形参将会把值赋予给对应的形参</span><br><span class="line">fun3(222,888);//结果就是1110</span><br><span class="line">//那么万一我想要多个实参，看看会发生什么</span><br><span class="line">fun3(1,2,44,55);//按道理来说应该会都相加等于102</span><br><span class="line">//结果还是等于3 原因就在于，解析器调用的时候不会检查实参的数量，</span><br><span class="line">//多余的实参不会被赋值，说白了就是，我的形参只有两个，但是实参有多个的话，那也只传两个实参，多的不会管了</span><br><span class="line"></span><br><span class="line">//那么当实参的数量少与形参的时候，形参没有对应的实参，形参就是undefined </span><br><span class="line">//例如下面</span><br><span class="line"></span><br><span class="line">fun3(1); //结果就是NaN</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//注意！！！！！！！！！！！！ 函数的实参可以是任意数据类型</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/20/js%E5%87%BD%E6%95%B0%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%90%86%E8%A7%A3%E4%BB%A5%E5%8F%8A%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%8D%E7%B1%BB/" data-id="ckiwmhjuh00009ktyenx4dh3j" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/12/12/%E8%BF%87%E6%B8%A1%E5%8A%A8%E7%94%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">过渡动画</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/12/20/js%E5%87%BD%E6%95%B0%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%90%86%E8%A7%A3%E4%BB%A5%E5%8F%8A%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%8D%E7%B1%BB/">js函数的第一次理解以及函数的种类</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/12/%E8%BF%87%E6%B8%A1%E5%8A%A8%E7%94%BB/">过渡动画</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/12/%E5%85%B3%E4%BA%8E%E6%B5%AE%E5%8A%A8%E7%9A%84%E8%AE%B2%E8%A7%A3/">关于浮动的讲解</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/12/%E5%85%B3%E4%BA%8E%E5%AE%9A%E4%BD%8D%E7%9A%84%E8%AE%B2%E8%A7%A3%E4%BB%A5%E5%8F%8A%E6%8B%93%E5%B1%95/">关于定位的讲解以及拓展</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/08/js%E5%BE%AA%E7%8E%AF/">js循环</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

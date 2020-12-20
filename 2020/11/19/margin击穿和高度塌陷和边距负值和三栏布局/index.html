@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>margin击穿和高度塌陷和边距负值和三栏布局 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="marign击穿就是边距叠加，当两个兄弟盒子son和son1垂直相邻并且是块级元素的时候，会发生margin击穿。注意：水平方向并不会发生击穿，padding则会变成增加块的高宽，float也不会，并且行内元素不存在有margin这说法当给son margin-bottm30px。并且给son1margintop50px这个时候他们的距离不是60而是50px，取他们的大值。这个就是击穿 12345">
+<meta property="og:type" content="article">
+<meta property="og:title" content="margin击穿和高度塌陷和边距负值和三栏布局">
+<meta property="og:url" content="http://example.com/2020/11/19/margin%E5%87%BB%E7%A9%BF%E5%92%8C%E9%AB%98%E5%BA%A6%E5%A1%8C%E9%99%B7%E5%92%8C%E8%BE%B9%E8%B7%9D%E8%B4%9F%E5%80%BC%E5%92%8C%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="marign击穿就是边距叠加，当两个兄弟盒子son和son1垂直相邻并且是块级元素的时候，会发生margin击穿。注意：水平方向并不会发生击穿，padding则会变成增加块的高宽，float也不会，并且行内元素不存在有margin这说法当给son margin-bottm30px。并且给son1margintop50px这个时候他们的距离不是60而是50px，取他们的大值。这个就是击穿 12345">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-19T08:14:26.000Z">
+<meta property="article:modified_time" content="2020-11-19T09:18:28.488Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-margin击穿和高度塌陷和边距负值和三栏布局" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/19/margin%E5%87%BB%E7%A9%BF%E5%92%8C%E9%AB%98%E5%BA%A6%E5%A1%8C%E9%99%B7%E5%92%8C%E8%BE%B9%E8%B7%9D%E8%B4%9F%E5%80%BC%E5%92%8C%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80/" class="article-date">
+  <time datetime="2020-11-19T08:14:26.000Z" itemprop="datePublished">2020-11-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      margin击穿和高度塌陷和边距负值和三栏布局
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="marign击穿就是边距叠加，当两个兄弟盒子son和son1垂直相邻并且是块级元素的时候，会发生margin击穿。注意：水平方向并不会发生击穿，padding则会变成增加块的高宽，float也不会，并且行内元素不存在有margin这说法"><a href="#marign击穿就是边距叠加，当两个兄弟盒子son和son1垂直相邻并且是块级元素的时候，会发生margin击穿。注意：水平方向并不会发生击穿，padding则会变成增加块的高宽，float也不会，并且行内元素不存在有margin这说法" class="headerlink" title="marign击穿就是边距叠加，当两个兄弟盒子son和son1垂直相邻并且是块级元素的时候，会发生margin击穿。注意：水平方向并不会发生击穿，padding则会变成增加块的高宽，float也不会，并且行内元素不存在有margin这说法"></a>marign击穿就是边距叠加，当两个兄弟盒子son和son1垂直相邻并且是块级元素的时候，会发生margin击穿。注意：水平方向并不会发生击穿，padding则会变成增加块的高宽，float也不会，并且行内元素不存在有margin这说法</h2><h2 id="当给son-margin-bottm30px。并且给son1margintop50px"><a href="#当给son-margin-bottm30px。并且给son1margintop50px" class="headerlink" title="当给son margin-bottm30px。并且给son1margintop50px"></a>当给son margin-bottm30px。并且给son1margintop50px</h2><p>这个时候他们的距离不是60而是50px，取他们的大值。这个就是击穿</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">   ---边距叠加</span><br><span class="line">   &lt;!-- &lt;div class=<span class="string">&quot;son&quot;</span>&gt;&lt;/div&gt; </span><br><span class="line">   &lt;div class=<span class="string">&quot;son1&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;span class=<span class="string">&quot;s1&quot;</span>&gt;djflkdjfkjflkdj&lt;/span&gt;</span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">&lt;span class=<span class="string">&quot;s2&quot;</span>&gt; 123432432453543&lt;/span&gt;</span><br><span class="line"> --&gt;</span><br><span class="line"> &lt;div class=<span class="string">&quot;father&quot;</span>&gt;</span><br><span class="line">     &lt;div class=<span class="string">&quot;son&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">     &lt;div class=<span class="string">&quot;son1&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">    &lt;!-- &lt;div&gt;dsjfjdkfjd&lt;/div&gt; --&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">.father&#123;</span><br><span class="line">    width: 500px;</span><br><span class="line">    height: 400px;</span><br><span class="line">    background-color: darkgreen;</span><br><span class="line">   /*  margin-top: 30px; */</span><br><span class="line">   /*  margin-bottom: 40px; */</span><br><span class="line">   /*  padding-top: 30px; */</span><br><span class="line"> /*    padding-bottom: 40px; */</span><br><span class="line"> /* border: 1px solid <span class="comment">#123456; */</span></span><br><span class="line"> overflow: auto;</span><br><span class="line">&#125;</span><br><span class="line">.father::after&#123;</span><br><span class="line">    content: <span class="string">&quot;gggg&quot;</span>;</span><br><span class="line">    /* display: table; */</span><br><span class="line">    /* display: block; */</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    .son&#123;</span><br><span class="line">        width: 200px;height: 200px;</span><br><span class="line">        background-color: chocolate;</span><br><span class="line">     /*  margin-right: 30px;  */</span><br><span class="line">    /*  padding-right: 30px; */</span><br><span class="line">   /*  margin-top: 30px; */</span><br><span class="line">   /*  margin-bottom: 40px; */</span><br><span class="line">    /* padding-top: 30px; */</span><br><span class="line">  /*   padding-bottom: 40px; */</span><br><span class="line">     &#125;</span><br><span class="line">    .son1&#123;</span><br><span class="line">        width: 50px;</span><br><span class="line">        height: 50px;</span><br><span class="line">        background-color: blue;</span><br><span class="line">        /* margin-top: 30px; */</span><br><span class="line">       /*  margin-bottom: 30px; */</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="如果是父亲和儿子的关系的时候，明明只想改变儿子的margintop，但是父亲跟着一起动了。"><a href="#如果是父亲和儿子的关系的时候，明明只想改变儿子的margintop，但是父亲跟着一起动了。" class="headerlink" title="如果是父亲和儿子的关系的时候，明明只想改变儿子的margintop，但是父亲跟着一起动了。"></a>如果是父亲和儿子的关系的时候，明明只想改变儿子的margintop，但是父亲跟着一起动了。</h2><h2 id="解决方法1-给父亲一个border，让儿子知道一它为边界运动"><a href="#解决方法1-给父亲一个border，让儿子知道一它为边界运动" class="headerlink" title="解决方法1 给父亲一个border，让儿子知道一它为边界运动"></a>解决方法1 给父亲一个border，让儿子知道一它为边界运动</h2><h2 id="2-给父亲添加一个overflow：auto，但是这个方法不可控，也是未知的，所以最好别用"><a href="#2-给父亲添加一个overflow：auto，但是这个方法不可控，也是未知的，所以最好别用" class="headerlink" title="2 给父亲添加一个overflow：auto，但是这个方法不可控，也是未知的，所以最好别用"></a>2 给父亲添加一个overflow：auto，但是这个方法不可控，也是未知的，所以最好别用</h2><h2 id="3-给父亲一个伪类："><a href="#3-给父亲一个伪类：" class="headerlink" title="3:给父亲一个伪类："></a>3:给父亲一个伪类：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">.father::after&#123;</span><br><span class="line">    content: <span class="string">&quot;gggg&quot;</span>;</span><br><span class="line">   1 /* display: table; */ 这个会让其变成table，不会独占一行</span><br><span class="line">   2 /* display: block; */这个会让其变成block，会独占一行</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<h2 id="水平方向的定位，当给son1加定位，给son-marginright，没有看见右边移动，因为son没有参考的，其实盒子模型是生效了的。但是页面看不见。"><a href="#水平方向的定位，当给son1加定位，给son-marginright，没有看见右边移动，因为son没有参考的，其实盒子模型是生效了的。但是页面看不见。" class="headerlink" title="水平方向的定位，当给son1加定位，给son marginright，没有看见右边移动，因为son没有参考的，其实盒子模型是生效了的。但是页面看不见。"></a>水平方向的定位，当给son1加定位，给son marginright，没有看见右边移动，因为son没有参考的，其实盒子模型是生效了的。但是页面看不见。</h2><h2 id="边距负值-菜单栏会用到"><a href="#边距负值-菜单栏会用到" class="headerlink" title="边距负值 菜单栏会用到"></a>边距负值 菜单栏会用到</h2><h2 id="文档流元素按照，从左到右，从上到下的排列顺序，就是文档流"><a href="#文档流元素按照，从左到右，从上到下的排列顺序，就是文档流" class="headerlink" title="文档流元素按照，从左到右，从上到下的排列顺序，就是文档流"></a>文档流元素按照，从左到右，从上到下的排列顺序，就是文档流</h2><h2 id="当元素float：left的时候，都是水平排列，并且，第一个挨着第二个这样。"><a href="#当元素float：left的时候，都是水平排列，并且，第一个挨着第二个这样。" class="headerlink" title="当元素float：left的时候，都是水平排列，并且，第一个挨着第二个这样。"></a>当元素float：left的时候，都是水平排列，并且，第一个挨着第二个这样。</h2><h2 id="一旦屏幕没有那么大，装不下的时候，最后一个会被挤下来，但是并不是换行，而是按照最小的能够放下的位置。"><a href="#一旦屏幕没有那么大，装不下的时候，最后一个会被挤下来，但是并不是换行，而是按照最小的能够放下的位置。" class="headerlink" title="一旦屏幕没有那么大，装不下的时候，最后一个会被挤下来，但是并不是换行，而是按照最小的能够放下的位置。"></a>一旦屏幕没有那么大，装不下的时候，最后一个会被挤下来，但是并不是换行，而是按照最小的能够放下的位置。</h2><h2 id="定位大于浮动，意思是定位的会覆盖住浮动的"><a href="#定位大于浮动，意思是定位的会覆盖住浮动的" class="headerlink" title="定位大于浮动，意思是定位的会覆盖住浮动的"></a>定位大于浮动，意思是定位的会覆盖住浮动的</h2><h2 id="高度塌陷-就是当父亲不设置高度宽度的时候-几个儿子都浮动left，本来应该撑起来父亲，但是并没有。"><a href="#高度塌陷-就是当父亲不设置高度宽度的时候-几个儿子都浮动left，本来应该撑起来父亲，但是并没有。" class="headerlink" title="高度塌陷 就是当父亲不设置高度宽度的时候,几个儿子都浮动left，本来应该撑起来父亲，但是并没有。"></a>高度塌陷 就是当父亲不设置高度宽度的时候,几个儿子都浮动left，本来应该撑起来父亲，但是并没有。</h2><h2 id="方法如下"><a href="#方法如下" class="headerlink" title="方法如下"></a>方法如下</h2><h2 id="1-给父亲也加float：left但是这样的话后面又要给爷爷，爷爷的父亲都要加浮动，太麻烦了"><a href="#1-给父亲也加float：left但是这样的话后面又要给爷爷，爷爷的父亲都要加浮动，太麻烦了" class="headerlink" title="1 给父亲也加float：left但是这样的话后面又要给爷爷，爷爷的父亲都要加浮动，太麻烦了"></a>1 给父亲也加float：left但是这样的话后面又要给爷爷，爷爷的父亲都要加浮动，太麻烦了</h2><h2 id="2给父亲加overflow：hidden-这样对下拉菜单不是友好"><a href="#2给父亲加overflow：hidden-这样对下拉菜单不是友好" class="headerlink" title="2给父亲加overflow：hidden 这样对下拉菜单不是友好"></a>2给父亲加overflow：hidden 这样对下拉菜单不是友好</h2><h2 id="3让父亲display：inline-block"><a href="#3让父亲display：inline-block" class="headerlink" title="3让父亲display：inline-block"></a>3让父亲display：inline-block</h2><h2 id="4-position：-relative和abusolute都行-但是这样会对页面的其他元素造成影响，因为他一旦浮动起来了就脱离了文档流"><a href="#4-position：-relative和abusolute都行-但是这样会对页面的其他元素造成影响，因为他一旦浮动起来了就脱离了文档流" class="headerlink" title="4 position： relative和abusolute都行 但是这样会对页面的其他元素造成影响，因为他一旦浮动起来了就脱离了文档流"></a>4 position： relative和abusolute都行 但是这样会对页面的其他元素造成影响，因为他一旦浮动起来了就脱离了文档流</h2><h2 id="5-添加一个空白块，在几个儿子的后面让他clear：both"><a href="#5-添加一个空白块，在几个儿子的后面让他clear：both" class="headerlink" title="5 添加一个空白块，在几个儿子的后面让他clear：both"></a>5 添加一个空白块，在几个儿子的后面让他clear：both</h2><h2 id="6-给父亲添加一个伪元素-father-after-content-“”-clear-both-height-0-display-block"><a href="#6-给父亲添加一个伪元素-father-after-content-“”-clear-both-height-0-display-block" class="headerlink" title="6 给父亲添加一个伪元素 .father::after{content: “”;  clear: both;   height: 0; display: block;"></a>6 给父亲添加一个伪元素 .father::after{content: “”;  clear: both;   height: 0; display: block;</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">.father&#123;</span><br><span class="line">    border: 1px solid <span class="comment">#000;</span></span><br><span class="line">    /*  <span class="built_in">float</span>: left;  */  </span><br><span class="line">  /*   overflow: hidden;   */</span><br><span class="line">  /* position: relative; */ /* position: absolute; *//* top: 10px; */</span><br><span class="line"> /*  display: inline-block;</span><br><span class="line">   */</span><br><span class="line">  /*  height: 100px;</span><br><span class="line">   width: 1000px; */</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">.son&#123;</span><br><span class="line">    width: 50px;</span><br><span class="line">    height: 50px;</span><br><span class="line">    background-color: maroon;</span><br><span class="line">     <span class="built_in">float</span>: left; </span><br><span class="line">    /*  display: inline-block;  */ </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.son1&#123;</span><br><span class="line">width: 100px;</span><br><span class="line">height: 100px;</span><br><span class="line">background-color: mediumblue;</span><br><span class="line"></span><br><span class="line"><span class="built_in">float</span>: left; </span><br><span class="line"> /*  display: inline-block;  </span><br><span class="line"> */</span><br><span class="line">&#125;</span><br><span class="line"> /* .s&#123;</span><br><span class="line">    clear: both;</span><br><span class="line">&#125;   */</span><br><span class="line">/* .father::after&#123;</span><br><span class="line">    content: <span class="string">&quot;&quot;</span>;</span><br><span class="line">    clear: both;</span><br><span class="line">    height: 0;</span><br><span class="line">    display: block;</span><br><span class="line">&#125;  */</span><br></pre></td></tr></table></figure>
+
+<h2 id="三栏布局-解释在里面"><a href="#三栏布局-解释在里面" class="headerlink" title="三栏布局 解释在里面"></a>三栏布局 解释在里面</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">  &lt;div class=<span class="string">&quot;clear&quot;</span>&gt;</span><br><span class="line">        &lt;div class=<span class="string">&quot;father&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">          // 注意这个cont一定要写在left和right的前面不然会出错</span><br><span class="line">          因为当他写在下面的时候，首先会被left这个块挤下来，即使是浮动了的。 </span><br><span class="line">            &lt;div class=<span class="string">&quot;cont&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">              &lt;div class=<span class="string">&quot;main&quot;</span>&gt;</span><br><span class="line">&lt;h2 style=<span class="string">&quot;background-color: blue;&quot;</span>&gt;这个是内容哒哒哒哒哒哒单独&lt;/h2&gt;</span><br><span class="line"> </span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=<span class="string">&quot;left&quot;</span>&gt;左边菜单吧&lt;/div&gt;</span><br><span class="line">    </span><br><span class="line">      </span><br><span class="line">        &lt;div class=<span class="string">&quot;right&quot;</span>&gt;右边菜单&lt;/div&gt;</span><br><span class="line">        </span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div&gt;好地方极乐迪斯科父级&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">      *&#123;</span><br><span class="line">        margin: 0;</span><br><span class="line">        padding: 0;</span><br><span class="line">    &#125;  </span><br><span class="line">     .father&#123;</span><br><span class="line"> border:1px solid <span class="comment">#000;</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    .left&#123;</span><br><span class="line">        width: 100px;</span><br><span class="line">        height: 100px;</span><br><span class="line">        background-color: red;</span><br><span class="line">        <span class="built_in">float</span>: left;</span><br><span class="line">         margin-left: -100%;  </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    .right&#123;</span><br><span class="line">        width: 100px;</span><br><span class="line">        height: 100px;</span><br><span class="line">        background-color: mediumspringgreen;</span><br><span class="line">        <span class="built_in">float</span>: left;</span><br><span class="line">        margin-left: -100px;  </span><br><span class="line">    &#125;</span><br><span class="line">    .cont&#123;</span><br><span class="line">        </span><br><span class="line">        width: 100%;</span><br><span class="line">        background-color: orange;</span><br><span class="line">        <span class="built_in">float</span>: left;</span><br><span class="line">    &#125;</span><br><span class="line">     .main&#123;</span><br><span class="line">  margin: 0 100px 0 100px;  </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">    &#125; </span><br><span class="line">    .clear::after&#123;</span><br><span class="line">        content: <span class="string">&quot;&quot;</span>;</span><br><span class="line">        display: block;</span><br><span class="line">        clear: both;</span><br><span class="line">    &#125;   </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/19/margin%E5%87%BB%E7%A9%BF%E5%92%8C%E9%AB%98%E5%BA%A6%E5%A1%8C%E9%99%B7%E5%92%8C%E8%BE%B9%E8%B7%9D%E8%B4%9F%E5%80%BC%E5%92%8C%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80/" data-id="ckiwmhjul00019ktyec0nhvsa" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/11/21/%E7%AD%89%E8%B7%9D%E5%B8%83%E5%B1%80%EF%BC%8C%E8%B4%B4%E8%BE%B9%E5%B8%83%E5%B1%80/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          等距布局，贴边布局
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/19/photo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">photo</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/12/20/js%E5%87%BD%E6%95%B0%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%90%86%E8%A7%A3%E4%BB%A5%E5%8F%8A%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%8D%E7%B1%BB/">js函数的第一次理解以及函数的种类</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/12/%E8%BF%87%E6%B8%A1%E5%8A%A8%E7%94%BB/">过渡动画</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/12/%E5%85%B3%E4%BA%8E%E6%B5%AE%E5%8A%A8%E7%9A%84%E8%AE%B2%E8%A7%A3/">关于浮动的讲解</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/12/%E5%85%B3%E4%BA%8E%E5%AE%9A%E4%BD%8D%E7%9A%84%E8%AE%B2%E8%A7%A3%E4%BB%A5%E5%8F%8A%E6%8B%93%E5%B1%95/">关于定位的讲解以及拓展</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/08/js%E5%BE%AA%E7%8E%AF/">js循环</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

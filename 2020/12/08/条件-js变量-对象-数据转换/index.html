@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>条件 js变量 对象 数据转换 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="js变量会有提升 就是会把下面的提升到最上面，但是他的值不会一起提升上去，都是局部提升12345678console.log(a)var a var a&#x3D;10 都是undfinde var arr&#x3D;[3,4]arr2 &#x3D;arr arr2[1]&#x3D;0这样才会都改变 数组 var age&#x3D;[18,19,20] 如果是age[5]会undfinde 二维数组 ，三维数组12var age [18,19,2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="条件 js变量 对象 数据转换">
+<meta property="og:url" content="http://example.com/2020/12/08/%E6%9D%A1%E4%BB%B6-js%E5%8F%98%E9%87%8F-%E5%AF%B9%E8%B1%A1-%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="js变量会有提升 就是会把下面的提升到最上面，但是他的值不会一起提升上去，都是局部提升12345678console.log(a)var a var a&#x3D;10 都是undfinde var arr&#x3D;[3,4]arr2 &#x3D;arr arr2[1]&#x3D;0这样才会都改变 数组 var age&#x3D;[18,19,20] 如果是age[5]会undfinde 二维数组 ，三维数组12var age [18,19,2">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-08T00:57:11.000Z">
+<meta property="article:modified_time" content="2020-12-08T04:13:39.164Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-条件-js变量-对象-数据转换" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/08/%E6%9D%A1%E4%BB%B6-js%E5%8F%98%E9%87%8F-%E5%AF%B9%E8%B1%A1-%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2/" class="article-date">
+  <time datetime="2020-12-08T00:57:11.000Z" itemprop="datePublished">2020-12-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      条件 js变量 对象 数据转换
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="js变量会有提升-就是会把下面的提升到最上面，但是他的值不会一起提升上去，都是局部提升"><a href="#js变量会有提升-就是会把下面的提升到最上面，但是他的值不会一起提升上去，都是局部提升" class="headerlink" title="js变量会有提升 就是会把下面的提升到最上面，但是他的值不会一起提升上去，都是局部提升"></a>js变量会有提升 就是会把下面的提升到最上面，但是他的值不会一起提升上去，都是局部提升</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">console.log(a)</span><br><span class="line">var a </span><br><span class="line">var a=10 都是undfinde </span><br><span class="line"></span><br><span class="line">var arr=[3,4]</span><br><span class="line">arr2 =arr </span><br><span class="line">arr2[1]=0</span><br><span class="line">这样才会都改变</span><br></pre></td></tr></table></figure>
+<h2 id="数组-var-age-18-19-20-如果是age-5-会undfinde-二维数组-，三维数组"><a href="#数组-var-age-18-19-20-如果是age-5-会undfinde-二维数组-，三维数组" class="headerlink" title="数组 var age=[18,19,20] 如果是age[5]会undfinde 二维数组 ，三维数组"></a>数组 var age=[18,19,20] 如果是age[5]会undfinde 二维数组 ，三维数组</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var age [18,19,20,[12,13,14,]] 二维数组</span><br><span class="line">var age [18,19,20,[12,13,14,[12,33]]]三维数组</span><br></pre></td></tr></table></figure>
+<h2 id="函数也会被拉到最上面-构造函数方式-代码按顺序执行"><a href="#函数也会被拉到最上面-构造函数方式-代码按顺序执行" class="headerlink" title="函数也会被拉到最上面 构造函数方式 代码按顺序执行"></a>函数也会被拉到最上面 构造函数方式 代码按顺序执行</h2><h2 id="对象-万物即可对象哈哈哈-其实就是堆和栈-堆快捷但是小内存，简单"><a href="#对象-万物即可对象哈哈哈-其实就是堆和栈-堆快捷但是小内存，简单" class="headerlink" title="对象 万物即可对象哈哈哈 其实就是堆和栈 堆快捷但是小内存，简单"></a>对象 万物即可对象哈哈哈 其实就是堆和栈 堆快捷但是小内存，简单</h2><h2 id="栈-慢但是可以放的多-复杂的-其实引用的都是地址-注意：空值也是对象"><a href="#栈-慢但是可以放的多-复杂的-其实引用的都是地址-注意：空值也是对象" class="headerlink" title="栈 慢但是可以放的多 复杂的 其实引用的都是地址  注意：空值也是对象"></a>栈 慢但是可以放的多 复杂的 其实引用的都是地址  注意：空值也是对象</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var arr=[3,4]</span><br><span class="line">arr2 =arr </span><br><span class="line">arr2[1]=0</span><br><span class="line">这样其实就是改变的是地址 这样就都改变了 </span><br><span class="line"></span><br><span class="line">var arr3=[1,2,3]</span><br><span class="line">arr3[0]=arr[0]</span><br><span class="line">arr3[1]=arr[1]</span><br><span class="line">arr3[1]=0</span><br><span class="line">这样的话 arr 就是[3,4] arr3[3,0]</span><br></pre></td></tr></table></figure>
+
+<h2 id="还有要注意的是-NaN是数字类型但是不是数字，唯一一个不等于自己的"><a href="#还有要注意的是-NaN是数字类型但是不是数字，唯一一个不等于自己的" class="headerlink" title="还有要注意的是 NaN是数字类型但是不是数字，唯一一个不等于自己的"></a>还有要注意的是 NaN是数字类型但是不是数字，唯一一个不等于自己的</h2><h2 id="parseint-1-2-这是正常的-但是如果是parseint-1-2-也没什么影响，只有当parseint-1-3-这样在中间空格就行"><a href="#parseint-1-2-这是正常的-但是如果是parseint-1-2-也没什么影响，只有当parseint-1-3-这样在中间空格就行" class="headerlink" title="parseint(1.2) 这是正常的 但是如果是parseint( 1.2)也没什么影响，只有当parseint(1 .3) 这样在中间空格就行"></a>parseint(1.2) 这是正常的 但是如果是parseint( 1.2)也没什么影响，只有当parseint(1 .3) 这样在中间空格就行</h2><h2 id="只要-用了let-就不能在用var去相同的变量-而且var-没有拿值，只有let和const才拿到属性值"><a href="#只要-用了let-就不能在用var去相同的变量-而且var-没有拿值，只有let和const才拿到属性值" class="headerlink" title="只要 用了let 就不能在用var去相同的变量 而且var 没有拿值，只有let和const才拿到属性值"></a>只要 用了let 就不能在用var去相同的变量 而且var 没有拿值，只有let和const才拿到属性值</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var age=[18,19,20]</span><br><span class="line">list.innerHTML=<span class="string">&quot;&lt;li&gt; +age[0]+&lt;/li&gt;&quot;</span></span><br><span class="line">list.innerHTML=<span class="string">&quot;&lt;li&gt; +age[1]+&lt;/li&gt;&quot;</span></span><br><span class="line">list.innerHTML=<span class="string">&quot;&lt;li&gt; +age[2]+&lt;/li&gt;&quot;</span></span><br><span class="line">这样打印的是只有一个li</span><br><span class="line">因为有js的顺序</span><br><span class="line">list.innerHTML+=<span class="string">&quot;&lt;li&gt; +age[0]+&lt;/li&gt;&quot;</span></span><br><span class="line">所以要这样写 </span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="条件嵌套-只有一句去掉方括号-这个是值等，但是数据类型不同-是全等数据值和类型都要相等"><a href="#条件嵌套-只有一句去掉方括号-这个是值等，但是数据类型不同-是全等数据值和类型都要相等" class="headerlink" title="条件嵌套 只有一句去掉方括号 ==这个是值等，但是数据类型不同 ===是全等数据值和类型都要相等"></a>条件嵌套 只有一句去掉方括号 ==这个是值等，但是数据类型不同 ===是全等数据值和类型都要相等</h2><h2 id="有事函数里面会有一个e-这个表示是event-事件，表示的是占位置的-当一个值正好等于布尔值的时候，不能直接使用变量作为条件"><a href="#有事函数里面会有一个e-这个表示是event-事件，表示的是占位置的-当一个值正好等于布尔值的时候，不能直接使用变量作为条件" class="headerlink" title="有事函数里面会有一个e 这个表示是event 事件，表示的是占位置的 当一个值正好等于布尔值的时候，不能直接使用变量作为条件"></a>有事函数里面会有一个e 这个表示是event 事件，表示的是占位置的 当一个值正好等于布尔值的时候，不能直接使用变量作为条件</h2> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">应该是要这样</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(age !=undinfed)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/08/%E6%9D%A1%E4%BB%B6-js%E5%8F%98%E9%87%8F-%E5%AF%B9%E8%B1%A1-%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2/" data-id="ckiwmhjut00079kty2vux4mgl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/12/08/js%E5%BE%AA%E7%8E%AF/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          js循环
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/12/04/%E7%86%8A%E7%AE%A1%E5%AE%B6%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">熊管家移动端总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/12/20/js%E5%87%BD%E6%95%B0%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%90%86%E8%A7%A3%E4%BB%A5%E5%8F%8A%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%8D%E7%B1%BB/">js函数的第一次理解以及函数的种类</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/12/%E8%BF%87%E6%B8%A1%E5%8A%A8%E7%94%BB/">过渡动画</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/12/%E5%85%B3%E4%BA%8E%E6%B5%AE%E5%8A%A8%E7%9A%84%E8%AE%B2%E8%A7%A3/">关于浮动的讲解</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/12/%E5%85%B3%E4%BA%8E%E5%AE%9A%E4%BD%8D%E7%9A%84%E8%AE%B2%E8%A7%A3%E4%BB%A5%E5%8F%8A%E6%8B%93%E5%B1%95/">关于定位的讲解以及拓展</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/08/js%E5%BE%AA%E7%8E%AF/">js循环</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
